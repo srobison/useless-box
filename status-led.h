@@ -8,6 +8,7 @@ class StatusLed {
   void setPin(uint8_t pin);
   void turnOn();
   void turnOff();
+  void toggle();
 
  private:
   uint8_t _pin;

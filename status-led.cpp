@@ -12,3 +12,12 @@ void StatusLed::turnOn() {
 void StatusLed::turnOff() {
    digitalWrite(_pin, HIGH);
 }
+
+void StatusLed::toggle() {
+  if (digitalRead(_pin)){
+    digitalWrite(_pin, LOW);
+  } else {
+    digitalWrite(_pin, HIGH);
+  }
+    
+}
