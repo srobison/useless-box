@@ -9,6 +9,7 @@
 #include "config.h"  // To store configuration and secrets.
 
 SpeedServo lidServo;
+SpeedServo armServo;
 
 void setup() {
   initSerial();
@@ -27,17 +28,21 @@ void initSerial() {
 void initServos() {
   lidServo.attach(PIN_LID_SERVO);
   lidServo.moveNowTo(LID_START_POSITION);
+  armServo.attach(PIN_SWITCH_SERVO);
+  armServo.moveNowTo(LID_START_POSITION);
 }
 
 void loop() {
 
   for (int pos = LID_START_POSITION; pos <= LID_END_POSITION; pos+=10){
     lidServo.moveNowTo(pos);
+    armServo.moveNowTo(pos);
     delay(10);
   }
 
   for (int pos = LID_END_POSITION; pos >= LID_START_POSITION; pos-=10){
     lidServo.moveNowTo(pos);
+    armServo.moveNowTo(pos);
     delay(10);
   }
 
