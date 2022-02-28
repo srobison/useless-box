@@ -1,6 +1,6 @@
 #include "proximity-sensor.h"
 
-void ProximitySensor::attach(uint8_t sdaPin, uint8_t sclPin, uint8_t rangeThreshold) {
+void ProximitySensor::attach(uint8_t sdaPin, uint8_t sclPin, uint16_t rangeThreshold) {
   Serial.println(F("ProximitySensor: Initializing..."));
 
   _sensor = APDS9930();
@@ -36,7 +36,7 @@ void ProximitySensor::attach(uint8_t sdaPin, uint8_t sclPin, uint8_t rangeThresh
   Serial.println(F("ProximitySensor: Initializing...DONE"));
 }
 
-uint8_t ProximitySensor::getProximity() {
+uint16_t ProximitySensor::getProximity() {
   if ( _sensor.readProximity(_lastProximityValue) ) {
     Serial.print(F("ProximitySensor: Proximity value: "));
     Serial.println(_lastProximityValue);
@@ -48,6 +48,6 @@ uint8_t ProximitySensor::getProximity() {
 }
 
 bool ProximitySensor::isInRange() {
-  uint8_t currentProximityValue = getProximity();
+  uint16_t currentProximityValue = getProximity();
   return currentProximityValue > _rangeThreshold;
 }

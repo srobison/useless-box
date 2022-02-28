@@ -69,11 +69,13 @@ void loop() {
       if (!isLidOpen && monitorSensor) {
         openLidFast();
         isLidOpen = true;
+        Serial.println("InRange");
       }
     } else {
       if (isLidOpen) {
         closeLidFast();
         isLidOpen = false;
+        Serial.println("OutRange");
       }
     }
   }

@@ -9,7 +9,7 @@ const int PIN_SWITCH_SERVO = D0;  // The GPIO number of the pin where the switch
 const int PIN_SWITCH = D5;        // The GPIO number of the pin where the switch is connected.
 const int PIN_SENSOR_SDA = D2;    // The GPIO number of the pin where the SDA pin of the APDS-9660 sensor is connected.
 const int PIN_SENSOR_SCL = D1;    // The GPIO number of the pin where the SCL pin of the APDS-9660 sensor is connected.
-const uint8_t SENSOR_TRIGGER_THRESHOLD = 600;  // The proximity value level that triggers a lid opening. (lower=brighter, higher=darker)
+const uint16_t SENSOR_TRIGGER_THRESHOLD = 600;  // The proximity value level that triggers a lid opening. (lower=brighter, higher=darker)
 
 const int LID_START_POSITION = 90;
 const int LID_END_POSITION = 40;
